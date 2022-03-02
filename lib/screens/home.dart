@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:makati_admin/screens/add_offers.dart';
+import 'package:makati_admin/screens/send_notification.dart';
+import 'package:makati_admin/screens/users.dart';
 import 'package:side_navigation/side_navigation.dart';
-
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,18 +12,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int selectedIndex=0;
-  List<Widget> views=[
-
-  ];
+  int selectedIndex = 0;
+  List<Widget> views = const [UserReport(), Offers(), SendNotification()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       // The row is needed to display the current view
       body: Row(
         children: [
-
           SideNavigationBar(
             selectedIndex: selectedIndex,
             items: const [
@@ -44,8 +42,6 @@ class _HomeState extends State<Home> {
               });
             },
           ),
-
-          /// Make it take the rest of the available width
           Expanded(
             child: views.elementAt(selectedIndex),
           )
